@@ -11,16 +11,16 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
+        src/mainwindow.cpp \
     src/imageFormat.cpp \
-    imagewindow.cpp
+    src/imagewindow.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS  += src/mainwindow.h \
     src/imageFormat.h \
-    imagewindow.h
+    src/imagewindow.h
 
-FORMS    += mainwindow.ui \
-    imagewindow.ui
+FORMS    += src/mainwindow.ui \
+    src/imagewindow.ui
 
 
 

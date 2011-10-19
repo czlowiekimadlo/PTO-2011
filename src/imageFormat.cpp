@@ -1,7 +1,5 @@
-#include "src/imageFormat.h"
+#include "imageFormat.h"
 
-ImageFormat::ImageFormat(QString *fileName = NULL) {
-    if (fileName != NULL) {
-        this->loadFile(fileName);
-    }
+ImageFormat::ImageFormat(QString *fileName) {
+
 }

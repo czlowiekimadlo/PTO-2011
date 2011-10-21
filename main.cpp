@@ -1,6 +1,6 @@
 #include <QtGui/QApplication>
 #include <QFileDialog>
-#include "src/imageFormat.h"
+#include "src/formats/imageFormat.h"
 #include "src/mainwindow.h"
 
 int main(int argc, char *argv[])

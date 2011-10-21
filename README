@@ -1,0 +1,19 @@
+
+I. Basic information
+II. Changelog
+
+
+I. Basic information
+
+Base README
+version: 0.1.0
+author:  Wojciech Chojnacki <quak@tlen.pl>
+
+Project developed for Image Proccessing classess at Faculty of Mathematics 
+and Computer Science, Adam Mickiewicz University in Poznań, Poland
+
+
+II. Changelog
+
+2011-10-19 v.0.1.0
+- basic windows setup

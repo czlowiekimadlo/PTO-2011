@@ -114,7 +114,6 @@ QImage * PBMFormat::loadFile(QString fileName) {
     tailingBits = width % 8;
     if (tailingBits > 0) rowSize++;
     buffer = new char[rowSize];
-
     for (int i = 0; i < height; i++) {
         file.read(buffer, rowSize * sizeof(char));
         k = 0;
@@ -137,5 +136,76 @@ QImage * PBMFormat::loadFile(QString fileName) {
 }
 
 void PBMFormat::saveFile(QString fileName, const QImage *image) {
+    if (image == NULL) {
+        throw 0;
+    }
 
+    char endline = '\n';
+    char *buffer;
+    int tailingBits, rowSize, k;
+    int width = image->width();
+    int height = image->height();
+    std::ostringstream lineBuffer;
+    std::ofstream file;
+    QByteArray ba = fileName.toLocal8Bit();
+
+    //open file
+    file.open(ba.data(), std::ofstream::binary | std::ofstream::trunc);
+    if (file.fail()) {
+        throw 1;
+    }
+
+    //write file format info
+    file.write("P4", 2*sizeof(char));
+    //write whitespace
+    file.write(&endline, sizeof(char));
+    if (file.fail()) {
+        throw 2;
+    }
+
+    //write comment
+    file.write("#created with Base", 18 * sizeof(char));
+    file.write(&endline, sizeof(char));
+    if (file.fail()) {
+        throw 3;
+    }
+
+
+    //write width and height
+    lineBuffer.flush();
+    lineBuffer << width << " " << height;
+    file.write(lineBuffer.str().c_str(), lineBuffer.str().length() * sizeof(char));
+    file.write(&endline, sizeof(char));
+    if (file.fail()) {
+        throw 4;
+    }
+
+
+    //write data
+    rowSize = image->width() / 8;
+    tailingBits = image->width() % 8;
+    if (tailingBits > 0) rowSize++;
+    buffer = new char[rowSize];
+
+    for (int i = 0; i < height; i++) {
+        k = 0;
+        buffer[k] = 0;
+        for (int j = 0; j < width; j++) {
+            if (j > 0 && (j % 8) == 0) {
+                k++;
+                buffer[k] = 0;
+            }
+            if (image->pixel(j, i) % 0x01000000 == 0) {
+                buffer[k] = buffer[k] | (128 >> j % 8);
+            }
+            else {
+                buffer[k] = buffer[k] & ~(128 >> j % 8);
+            }
+        }
+        file.write(buffer, rowSize * sizeof(char));
+    }
+
+    //finished
+    file.close();
+    delete buffer;
 }

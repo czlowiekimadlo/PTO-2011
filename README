@@ -10,10 +10,19 @@ version: 0.1.0
 author:  Wojciech Chojnacki <quak@tlen.pl>
 
 Project developed for Image Proccessing classess at Faculty of Mathematics 
-and Computer Science, Adam Mickiewicz University in Poznań, Poland
+and Computer Science, Adam Mickiewicz University in Poznań, Poland under
+tutoring by Wojciech Kowalewski.
 
 
 II. Changelog
+
+2011-11-23 v.0.1.1
+- added support for PBM
+- added support for PGM
+- added support for PPM
+- added lib support for JPG
+- added histogram window with luminance and RGB channels
+- extended GUI and core to accomodate future functionalities
 
 2011-10-19 v.0.1.0
 - basic windows setup

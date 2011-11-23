@@ -16,17 +16,45 @@ SOURCES += main.cpp\
     src/imagewindow.cpp \
     src/formats/pbmformat.cpp \
     src/formats/pgmformat.cpp \
-    src/formats/ppmformat.cpp
+    src/formats/ppmformat.cpp \
+    src/windows/histogramwindow.cpp \
+    src/formats/jpgformat.cpp \
+    src/commands/basecommand.cpp \
+    src/commands/commandqueue.cpp \
+    src/windows/historywindow.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
     src/imagewindow.h \
     src/formats/pbmformat.h \
     src/formats/pgmformat.h \
-    src/formats/ppmformat.h
+    src/formats/ppmformat.h \
+    src/windows/histogramwindow.h \
+    src/formats/jpgformat.h \
+    src/commands/basecommand.h \
+    src/commands/commandqueue.h \
+    src/windows/historywindow.h
 
 FORMS    += src/mainwindow.ui \
-    src/imagewindow.ui
+    src/imagewindow.ui \
+    src/windows/histogramwindow.ui \
+    src/windows/historywindow.ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>438</width>
-    <height>52</height>
+    <width>196</width>
+    <height>37</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,13 +22,16 @@
   <property name="windowTitle">
    <string>Base</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url('resources/histicon.jpg');</string>
+  </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>438</width>
+     <width>196</width>
      <height>21</height>
     </rect>
    </property>
@@ -40,7 +43,43 @@
     <addaction name="actionSaveFile"/>
     <addaction name="actionExit"/>
    </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuHistogram">
+     <property name="geometry">
+      <rect>
+       <x>552</x>
+       <y>132</y>
+       <width>143</width>
+       <height>94</height>
+      </rect>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title">
+      <string>Histogram</string>
+     </property>
+     <addaction name="actionEven"/>
+     <addaction name="actionStretch"/>
+    </widget>
+    <addaction name="menuHistogram"/>
+   </widget>
+   <widget class="QMenu" name="menuView_2">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionShow_histogram"/>
+    <addaction name="actionShow_history"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuView_2"/>
+   <addaction name="menuView"/>
   </widget>
   <action name="actionExit">
    <property name="text">
@@ -64,6 +103,26 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionShow_histogram">
+   <property name="text">
+    <string>Show histogram</string>
+   </property>
+  </action>
+  <action name="actionEven">
+   <property name="text">
+    <string>Even</string>
+   </property>
+  </action>
+  <action name="actionStretch">
+   <property name="text">
+    <string>Stretch</string>
+   </property>
+  </action>
+  <action name="actionShow_history">
+   <property name="text">
+    <string>Show history</string>
    </property>
   </action>
  </widget>

@@ -1,5 +1,5 @@
-#ifndef PPMFORMAT_H
-#define PPMFORMAT_H
+#ifndef JPGFORMAT_H
+#define JPGFORMAT_H
 
 #include <iostream>
 #include <fstream>
@@ -11,15 +11,14 @@
 #include <QSize>
 #include <QColor>
 #include <QMessageBox>
-#include <math.h>
 #include "imageFormat.h"
 
-class PPMFormat : public ImageFormat
+class JPGFormat : public ImageFormat
 {
 public:
-    PPMFormat();
+    JPGFormat();
     QImage * loadFile(QString fileName);
     void saveFile(QString fileName, const QImage *image);
 };
 
-#endif // PPMFORMAT_H
+#endif // JPGFORMAT_H

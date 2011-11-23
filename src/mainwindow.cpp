@@ -9,14 +9,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     activeImage = NULL;
+    histogramWindow = NULL;
+    //this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
-    if (activeImage != NULL) {
+    //this->destroyImageWindow();
+
+    if (activeImage != NULL)
+    {
         delete activeImage;
     }
+    if (histogramWindow != NULL)
+    {
+        delete histogramWindow;
+    }
+    delete ui;
 }
 
 void MainWindow::on_actionOpenFile_activated()
@@ -32,8 +41,8 @@ void MainWindow::on_actionSaveFile_activated()
         fileName = QFileDialog::getSaveFileName(
                     this,
                     tr("Save File"),
-                    "./image.ppm",
-                    tr("Images (*.pbm *.pgm *.ppm);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
+                    "./image.jpg",
+                    tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
                 );
 
         if (fileName != NULL) {
@@ -53,7 +62,7 @@ void MainWindow::openImageWindow() {
         this,
         tr("Open File"),
         "./",
-        tr("Images (*.pbm *.pgm *.ppm);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
+        tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
     );
 
     if (fileName != NULL) {
@@ -71,3 +80,41 @@ void MainWindow::destroyImageWindow() {
         activeImage = NULL;
     }
 }
+
+void MainWindow::on_actionShow_histogram_activated()
+{
+    this->openHistogramWindow();
+}
+
+void MainWindow::updateAllWindows()
+{
+    this->updateHistogramWindow();
+}
+
+void MainWindow::openHistogramWindow()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Histogram error", "There is no image.");
+        return;
+    }
+
+    if (histogramWindow == NULL)
+    {
+        histogramWindow = new HistogramWindow(this);
+        histogramWindow->setAttribute(Qt::WA_DeleteOnClose, true);
+        histogramWindow->setWindowTitle("Image histogram");
+        this->updateHistogramWindow();
+        histogramWindow->show();
+    }
+}
+
+void MainWindow::updateHistogramWindow()
+{
+    if (histogramWindow != NULL && activeImage != NULL)
+    {
+        histogramWindow->image = activeImage->primaryImage;
+        histogramWindow->refresh();
+    }
+}
+
+

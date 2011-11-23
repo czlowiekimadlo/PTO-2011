@@ -4,6 +4,8 @@
 #include "formats/pbmformat.h"
 #include "formats/pgmformat.h"
 #include "formats/ppmformat.h"
+#include "formats/jpgformat.h"
+#include "windows/histogramwindow.h"
 
 ImageWindow::ImageWindow(QWidget *parent) :
     QWidget(parent),
@@ -34,8 +36,8 @@ ImageWindow::~ImageWindow()
             fileName = QFileDialog::getSaveFileName(
                         this,
                         tr("Save File"),
-                        "./image.ppm",
-                        tr("Images (*.pbm *.pgm *.ppm);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
+                        "./image.jpg",
+                        tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
                     );
             if (fileName != NULL) {
                 this->saveFile(fileName);
@@ -62,12 +64,14 @@ void ImageWindow::openFile(QString fileName) {
         else if (fileName.endsWith(".ppm")) {
             format = new PPMFormat();
         }
+        else if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
+            format = new JPGFormat();
+        }
         else {
             QMessageBox::warning ( this, "Save error", "Unsupported file format.");
             return;
         }
 
-        //QMessageBox::warning ( this, "Info", "Loading file.");
         try {
             if (this->primaryImage != NULL) delete this->primaryImage;
             this->primaryImage = NULL;
@@ -89,8 +93,40 @@ void ImageWindow::openFile(QString fileName) {
 }
 
 void ImageWindow::saveFile(QString fileName) {
-    this->saved = true;
-    QMessageBox::warning ( this, "Save error", "Not yet implemented.");
+    ImageFormat *format;
+
+    if (this->primaryImage == NULL) {
+        QMessageBox::warning ( this, "Save error", "No image to save.");
+        return;
+    }
+
+    if (fileName != NULL) {
+        if (fileName.endsWith(".pbm")) {
+            format = new PBMFormat();
+        }
+        else if (fileName.endsWith(".pgm")) {
+            format = new PGMFormat();
+        }
+        else if (fileName.endsWith(".ppm")) {
+            format = new PPMFormat();
+        }
+        else if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
+            format = new JPGFormat();
+        }
+        else {
+            QMessageBox::warning ( this, "Save error", "Unsupported file format.");
+            return;
+        }
+
+        try {
+            format->saveFile(fileName, this->primaryImage);
+            this->saved = true;
+        }
+        catch (...) {
+            QMessageBox::warning ( this, "Save error", "Error while saving file.");
+        }
+        delete format;
+    }
 }
 
 void ImageWindow::replicateImage() {

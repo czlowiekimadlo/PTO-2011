@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <exception>
+#include <sstream>
+#include <string>
 #include <QString>
 #include <QImage>
 #include <QSize>

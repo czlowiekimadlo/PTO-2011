@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     src/formats/jpgformat.cpp \
     src/commands/basecommand.cpp \
     src/commands/commandqueue.cpp \
-    src/windows/historywindow.cpp
+    src/windows/historywindow.cpp \
+    src/commands/openfilecommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -33,12 +34,15 @@ HEADERS  += src/mainwindow.h \
     src/formats/jpgformat.h \
     src/commands/basecommand.h \
     src/commands/commandqueue.h \
-    src/windows/historywindow.h
+    src/windows/historywindow.h \
+    src/commands/openfilecommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \
     src/windows/histogramwindow.ui \
     src/windows/historywindow.ui
+
+
 
 
 

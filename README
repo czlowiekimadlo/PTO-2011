@@ -16,6 +16,10 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
+2011-12-07 v.0.1.2
+- implemented commands queue
+- added commands history window
+
 2011-11-23 v.0.1.1
 - added support for PBM
 - added support for PGM

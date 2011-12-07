@@ -8,9 +8,14 @@ class CommandQueue
 {
 public:
     CommandQueue();
+    ~CommandQueue();
     void push(BaseCommand * command);
+    void pop();
     void cut(int depth);
-    void run(QImage * input, QImage * output);
+    void flush();
+    void run(QImage * input, QImage * output, int depth);
+    void run(QImage * input, QImage *output);
+    BaseCommand * giveHead();
 
 private:
     int depth;

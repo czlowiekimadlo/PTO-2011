@@ -8,6 +8,7 @@ class BaseCommand
 {
 public:
     BaseCommand();
+    ~BaseCommand();
 
     BaseCommand * next;
 

@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     activeImage = NULL;
     histogramWindow = NULL;
+    historyWindow = NULL;
+    commandQueue = new CommandQueue();
+    this->setFixedSize(this->ui->menuBar->width(), this->ui->menuBar->height());
     //this->setAttribute(Qt::WA_DeleteOnClose, true);
 }
 
@@ -24,6 +27,14 @@ MainWindow::~MainWindow()
     if (histogramWindow != NULL)
     {
         delete histogramWindow;
+    }
+    if (historyWindow != NULL)
+    {
+        delete historyWindow;
+    }
+    if (commandQueue != NULL)
+    {
+        delete commandQueue;
     }
     delete ui;
 }
@@ -57,6 +68,7 @@ void MainWindow::on_actionSaveFile_activated()
 
 void MainWindow::openImageWindow() {
     this->destroyImageWindow();
+    this->flushCommands();
 
     QString fileName = QFileDialog::getOpenFileName(
         this,
@@ -71,6 +83,7 @@ void MainWindow::openImageWindow() {
         activeImage->openFile(fileName);
         activeImage->setWindowTitle(fileName);
         activeImage->show();
+        this->pushCommand(new OpenFileCommand(fileName));
     }
 }
 
@@ -114,6 +127,41 @@ void MainWindow::updateHistogramWindow()
     {
         histogramWindow->image = activeImage->primaryImage;
         histogramWindow->refresh();
+    }
+}
+
+void MainWindow::openHistoryWindow()
+{
+    if (historyWindow == NULL)
+    {
+        historyWindow = new HistoryWindow(this);
+        historyWindow->setAttribute(Qt::WA_DeleteOnClose, true);
+        historyWindow->setWindowTitle("Commands history");
+        historyWindow->show();
+        historyWindow->fill(this->commandQueue->giveHead());
+    }
+}
+
+void MainWindow::on_actionShow_history_activated()
+{
+    this->openHistoryWindow();
+}
+
+void MainWindow::pushCommand(BaseCommand * command)
+{
+    this->commandQueue->push(command);
+    if (this->historyWindow != NULL)
+    {
+        this->historyWindow->fill(this->commandQueue->giveHead());
+    }
+}
+
+void MainWindow::flushCommands()
+{
+    this->commandQueue->flush();
+    if (this->historyWindow != NULL)
+    {
+        this->historyWindow->fill(NULL);
     }
 }
 

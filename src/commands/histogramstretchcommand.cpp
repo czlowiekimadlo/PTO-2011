@@ -9,7 +9,7 @@ void HistogramStretchCommand::run(QImage *input, QImage *output)
 
 }
 
-void HistogramStretchCommand::label()
+QString HistogramStretchCommand::label()
 {
     return "Histogram stretch";
 }

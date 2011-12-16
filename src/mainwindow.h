@@ -5,6 +5,7 @@
 #include "imagewindow.h"
 #include "windows/histogramwindow.h"
 #include "windows/historywindow.h"
+#include "windows/histogramevendialog.h"
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
@@ -28,6 +29,9 @@ public:
     ~MainWindow();
     void pushCommand(BaseCommand *);
     void flushCommands();
+    void refreshImage();
+    void refreshImage(int);
+    void closeHistogramWindow();
 
     CommandQueue * commandQueue;
     ImageWindow *activeImage;
@@ -46,12 +50,15 @@ private slots:
     void on_actionShow_histogram_activated();
     void on_actionShow_history_activated();
 
+    void on_actionEven_activated();
+
 private:
     Ui::MainWindow *ui;
 
     void openHistogramWindow();
     void updateHistogramWindow();
     void openHistoryWindow();
+    void openHistogramEvenDialog();
 
 };
 

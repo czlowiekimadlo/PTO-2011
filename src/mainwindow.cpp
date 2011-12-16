@@ -83,7 +83,8 @@ void MainWindow::openImageWindow() {
         activeImage->openFile(fileName);
         activeImage->setWindowTitle(fileName);
         activeImage->show();
-        this->pushCommand(new OpenFileCommand(fileName));
+        QFileInfo pathInfo( fileName );
+        this->pushCommand(new OpenFileCommand(pathInfo.fileName()));
     }
 }
 
@@ -130,6 +131,15 @@ void MainWindow::updateHistogramWindow()
     }
 }
 
+void MainWindow::closeHistogramWindow()
+{
+    if (histogramWindow != NULL)
+    {
+        delete histogramWindow;
+        histogramWindow = NULL;
+    }
+}
+
 void MainWindow::openHistoryWindow()
 {
     if (historyWindow == NULL)
@@ -154,6 +164,7 @@ void MainWindow::pushCommand(BaseCommand * command)
     {
         this->historyWindow->fill(this->commandQueue->giveHead());
     }
+    this->refreshImage();
 }
 
 void MainWindow::flushCommands()
@@ -165,4 +176,34 @@ void MainWindow::flushCommands()
     }
 }
 
+void MainWindow::refreshImage()
+{
+    this->commandQueue->run(this->activeImage->secondaryImage, this->activeImage->primaryImage);
+    this->activeImage->refreshImage();
+    this->updateHistogramWindow();
+}
 
+void MainWindow::refreshImage(int depth)
+{
+    this->commandQueue->run(this->activeImage->secondaryImage, this->activeImage->primaryImage, depth);
+    this->activeImage->refreshImage();
+    this->updateHistogramWindow();
+}
+
+void MainWindow::openHistogramEvenDialog()
+{
+    HistogramEvenDialog *dialog = new HistogramEvenDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Histogram even");
+    dialog->show();
+}
+
+
+void MainWindow::on_actionEven_activated()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+    this->openHistogramEvenDialog();
+}

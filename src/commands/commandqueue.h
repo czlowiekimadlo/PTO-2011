@@ -2,6 +2,7 @@
 #define COMMANDQUEUE_H
 
 #include <QImage>
+#include <iostream>
 #include "basecommand.h"
 
 class CommandQueue
@@ -22,6 +23,8 @@ private:
     int size;
     int maxSize;
     BaseCommand * queue;
+
+    void copyImage(QImage *, QImage *);
 };
 
 #endif // COMMANDQUEUE_H

@@ -18,7 +18,6 @@ void CommandQueue::push(BaseCommand *command)
     {
         this->queue = command;
         this->size = 1;
-        this->depth = 1;
     }
     else
     {
@@ -37,7 +36,7 @@ void CommandQueue::push(BaseCommand *command)
             }
             else break;
         }
-
+        element->next = command;
     }
 }
 
@@ -105,7 +104,21 @@ void CommandQueue::flush()
 
 void CommandQueue::run(QImage *input, QImage *output, int depth)
 {
+    BaseCommand *command;
+    QImage tempInput(*input);
 
+    command = this->queue;
+    this->copyImage(input, output);
+    for (int i = 0; i < depth; i++)
+    {
+        if (command == NULL)
+        {
+            break;
+        }
+        this->copyImage(output, &tempInput);
+        command->run(&tempInput, output);
+        command = command->next;
+    }
 }
 
 void CommandQueue::run(QImage *input, QImage *output)
@@ -116,6 +129,20 @@ void CommandQueue::run(QImage *input, QImage *output)
 BaseCommand * CommandQueue::giveHead()
 {
     return this->queue;
+}
+
+void CommandQueue::copyImage(QImage *input, QImage *output)
+{
+    int w,h;
+    w = input->width();
+    h = input->height();
+    for(int i = 0; i < h; i++)
+    {
+        for (int j = 0; j < w; j++)
+        {
+            output->setPixel(j, i, input->pixel(j, i));
+        }
+    }
 }
 
 

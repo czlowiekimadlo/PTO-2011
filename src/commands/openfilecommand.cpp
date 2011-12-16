@@ -7,7 +7,7 @@ OpenFileCommand::OpenFileCommand(QString filename) : BaseCommand()
 
 void OpenFileCommand::run(QImage *input, QImage *output)
 {
-    *output = *(new QImage(*input));
+    // do nothing
 }
 
 QString OpenFileCommand::label()

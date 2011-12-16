@@ -47,6 +47,7 @@ ImageWindow::~ImageWindow()
 
     delete ui;
     this->mainWindow->flushCommands();
+    this->mainWindow->closeHistogramWindow();
     this->mainWindow->activeImage = NULL;
     if (this->primaryImage != NULL) delete this->primaryImage;
     if (this->secondaryImage != NULL) delete this->secondaryImage;
@@ -132,4 +133,9 @@ void ImageWindow::saveFile(QString fileName) {
 
 void ImageWindow::replicateImage() {
     this->secondaryImage = new QImage(*this->primaryImage);
+}
+
+void ImageWindow::refreshImage()
+{
+    ui->label->setPixmap(QPixmap::fromImage(*this->primaryImage));
 }

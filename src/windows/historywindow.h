@@ -2,7 +2,7 @@
 #define HISTORYWINDOW_H
 
 #include <QWidget>
-
+#include <iostream>
 #include "../mainwindow.h"
 #include "../commands/basecommand.h"
 
@@ -23,6 +23,9 @@ public:
     void fill(BaseCommand *);
 
     MainWindow *mainWindow;
+
+private slots:
+    void on_listWidget_doubleClicked(const QModelIndex &index);
 
 private:
     Ui::HistoryWindow *ui;

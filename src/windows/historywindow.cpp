@@ -28,3 +28,13 @@ void HistoryWindow::fill(BaseCommand * head)
         element = element->next;
     }
 }
+
+void HistoryWindow::on_listWidget_doubleClicked(const QModelIndex &index)
+{
+    if (index.row() < 0)
+    {
+        return;
+    }
+
+    this->mainWindow->refreshImage(index.row() + 1);
+}

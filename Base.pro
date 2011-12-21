@@ -25,7 +25,8 @@ SOURCES += main.cpp\
     src/commands/openfilecommand.cpp \
     src/commands/histogramevencommand.cpp \
     src/windows/histogramevendialog.cpp \
-    src/commands/histogramstretchcommand.cpp
+    src/commands/histogramstretchcommand.cpp \
+    src/windows/histogramstretchdialog.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -41,13 +42,24 @@ HEADERS  += src/mainwindow.h \
     src/commands/openfilecommand.h \
     src/commands/histogramevencommand.h \
     src/windows/histogramevendialog.h \
-    src/commands/histogramstretchcommand.h
+    src/commands/histogramstretchcommand.h \
+    src/windows/histogramstretchdialog.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \
     src/windows/histogramwindow.ui \
     src/windows/historywindow.ui \
-    src/windows/histogramevendialog.ui
+    src/windows/histogramevendialog.ui \
+    src/windows/histogramstretchdialog.ui
+
+
+
+
+
+
+
+
+
 
 
 

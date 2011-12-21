@@ -167,6 +167,16 @@ void MainWindow::pushCommand(BaseCommand * command)
     this->refreshImage();
 }
 
+void MainWindow::popCommand()
+{
+    this->commandQueue->pop();
+    if (this->historyWindow != NULL)
+    {
+        this->historyWindow->fill(this->commandQueue->giveHead());
+    }
+    this->refreshImage();
+}
+
 void MainWindow::flushCommands()
 {
     this->commandQueue->flush();
@@ -198,6 +208,13 @@ void MainWindow::openHistogramEvenDialog()
     dialog->show();
 }
 
+void MainWindow::openHisgotramStretchDialog()
+{
+    HistogramStretchDialog *dialog = new HistogramStretchDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Histogram stretch");
+    dialog->show();
+}
 
 void MainWindow::on_actionEven_activated()
 {
@@ -206,4 +223,14 @@ void MainWindow::on_actionEven_activated()
         return;
     }
     this->openHistogramEvenDialog();
+}
+
+
+void MainWindow::on_actionStretch_activated()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+    this->openHisgotramStretchDialog();
 }

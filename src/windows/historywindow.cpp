@@ -38,3 +38,8 @@ void HistoryWindow::on_listWidget_doubleClicked(const QModelIndex &index)
 
     this->mainWindow->refreshImage(index.row() + 1);
 }
+
+void HistoryWindow::on_pushButton_clicked()
+{
+    this->mainWindow->popCommand();
+}

@@ -42,11 +42,12 @@ void CommandQueue::push(BaseCommand *command)
 
 void CommandQueue::pop()
 {
-    if (this->queue == NULL)
+    if (this->queue == NULL || this->size < 2)
     {
         return;
     }
 
+    /*
     if (this->queue->next == NULL)
     {
         delete this->queue;
@@ -54,6 +55,7 @@ void CommandQueue::pop()
         this->size = 0;
         this->depth = -1;
     }
+    */
 
     BaseCommand * element;
     element = this->queue;
@@ -65,6 +67,7 @@ void CommandQueue::pop()
         else break;
     }
     delete element->next;
+    element->next = NULL;
     this->size--;
 }
 

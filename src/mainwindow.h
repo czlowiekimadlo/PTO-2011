@@ -6,6 +6,7 @@
 #include "windows/histogramwindow.h"
 #include "windows/historywindow.h"
 #include "windows/histogramevendialog.h"
+#include "windows/histogramstretchdialog.h"
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
@@ -28,6 +29,7 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     void pushCommand(BaseCommand *);
+    void popCommand();
     void flushCommands();
     void refreshImage();
     void refreshImage(int);
@@ -52,6 +54,8 @@ private slots:
 
     void on_actionEven_activated();
 
+    void on_actionStretch_activated();
+
 private:
     Ui::MainWindow *ui;
 
@@ -59,7 +63,9 @@ private:
     void updateHistogramWindow();
     void openHistoryWindow();
     void openHistogramEvenDialog();
+    void openHisgotramStretchDialog();
 
 };
 
 #endif // MAINWINDOW_H
+

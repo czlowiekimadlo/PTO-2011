@@ -27,6 +27,8 @@ public:
 private slots:
     void on_listWidget_doubleClicked(const QModelIndex &index);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::HistoryWindow *ui;
 };

@@ -16,6 +16,11 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
+2011-12-21 v 0.1.4
+- undo functionality added
+- histogram even added
+- histogram stretch added
+
 2011-12-07 v.0.1.2
 - implemented commands queue
 - added commands history window

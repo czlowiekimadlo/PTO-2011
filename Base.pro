@@ -26,7 +26,13 @@ SOURCES += main.cpp\
     src/commands/histogramevencommand.cpp \
     src/windows/histogramevendialog.cpp \
     src/commands/histogramstretchcommand.cpp \
-    src/windows/histogramstretchdialog.cpp
+    src/windows/histogramstretchdialog.cpp \
+    src/windows/convolutionlinearwindow.cpp \
+    src/windows/convolutiongaussiandialog.cpp \
+    src/windows/convolutionfreedialog.cpp \
+    src/commands/convolutionlinearcommand.cpp \
+    src/commands/convolutiongaussiancommand.cpp \
+    src/commands/convolutionfreecommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -43,14 +49,44 @@ HEADERS  += src/mainwindow.h \
     src/commands/histogramevencommand.h \
     src/windows/histogramevendialog.h \
     src/commands/histogramstretchcommand.h \
-    src/windows/histogramstretchdialog.h
+    src/windows/histogramstretchdialog.h \
+    src/windows/convolutionlinearwindow.h \
+    src/windows/convolutiongaussiandialog.h \
+    src/windows/convolutionfreedialog.h \
+    src/commands/convolutionlinearcommand.h \
+    src/commands/convolutiongaussiancommand.h \
+    src/commands/convolutionfreecommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \
     src/windows/histogramwindow.ui \
     src/windows/historywindow.ui \
     src/windows/histogramevendialog.ui \
-    src/windows/histogramstretchdialog.ui
+    src/windows/histogramstretchdialog.ui \
+    src/windows/convolutionlinearwindow.ui \
+    src/windows/convolutiongaussiandialog.ui \
+    src/windows/convolutionfreedialog.ui
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

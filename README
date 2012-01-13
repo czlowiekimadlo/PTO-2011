@@ -16,7 +16,13 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
-2011-12-21 v 0.1.4
+2012-01-13 v.0.1.5
+- linear convolution added
+- gaussian convolution added
+- freemask convolution added
+- undo buttons added
+
+2011-12-21 v.0.1.4
 - undo functionality added
 - histogram even added
 - histogram stretch added

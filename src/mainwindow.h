@@ -7,6 +7,9 @@
 #include "windows/historywindow.h"
 #include "windows/histogramevendialog.h"
 #include "windows/histogramstretchdialog.h"
+#include "windows/convolutionlinearwindow.h"
+#include "windows/convolutiongaussiandialog.h"
+#include "windows/convolutionfreedialog.h"
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
@@ -16,6 +19,7 @@ class HistogramWindow;
 class HistoryWindow;
 class CommandQueue;
 class OpenFileCommand;
+class ConvolutionLinearWindow;
 
 namespace Ui {
     class MainWindow;
@@ -51,10 +55,12 @@ private slots:
     void on_actionSaveFile_activated();
     void on_actionShow_histogram_activated();
     void on_actionShow_history_activated();
-
     void on_actionEven_activated();
-
     void on_actionStretch_activated();
+    void on_actionUndo_triggered();
+    void on_actionLinear_triggered();
+    void on_actionGaussian_triggered();
+    void on_actionFree_triggered();
 
 private:
     Ui::MainWindow *ui;
@@ -68,4 +74,3 @@ private:
 };
 
 #endif // MAINWINDOW_H
-

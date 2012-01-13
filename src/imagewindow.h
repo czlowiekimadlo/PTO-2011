@@ -27,6 +27,7 @@ public:
     void openFile(QString fileName);
     void saveFile(QString fileName);
     void refreshImage();
+    void setSaved(bool);
     MainWindow *mainWindow;
     QImage *primaryImage;
     QImage *secondaryImage;

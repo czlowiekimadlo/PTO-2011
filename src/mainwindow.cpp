@@ -85,6 +85,7 @@ void MainWindow::openImageWindow() {
         activeImage->show();
         QFileInfo pathInfo( fileName );
         this->pushCommand(new OpenFileCommand(pathInfo.fileName()));
+        activeImage->setSaved(true);
     }
 }
 
@@ -165,6 +166,7 @@ void MainWindow::pushCommand(BaseCommand * command)
         this->historyWindow->fill(this->commandQueue->giveHead());
     }
     this->refreshImage();
+    this->activeImage->setSaved(false);
 }
 
 void MainWindow::popCommand()
@@ -175,6 +177,7 @@ void MainWindow::popCommand()
         this->historyWindow->fill(this->commandQueue->giveHead());
     }
     this->refreshImage();
+    this->activeImage->setSaved(false);
 }
 
 void MainWindow::flushCommands()
@@ -233,4 +236,48 @@ void MainWindow::on_actionStretch_activated()
         return;
     }
     this->openHisgotramStretchDialog();
+}
+
+void MainWindow::on_actionLinear_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    ConvolutionLinearWindow *dialog = new ConvolutionLinearWindow(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Linear convolution");
+    dialog->show();
+}
+
+void MainWindow::on_actionUndo_triggered()
+{
+    this->popCommand();
+}
+
+void MainWindow::on_actionGaussian_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    ConvolutionGaussianDialog *dialog = new ConvolutionGaussianDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Gaussian convolution");
+    dialog->show();
+}
+
+void MainWindow::on_actionFree_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    ConvolutionFreeDialog *dialog = new ConvolutionFreeDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Free convolution");
+    dialog->show();
 }

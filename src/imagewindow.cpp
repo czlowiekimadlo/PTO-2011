@@ -139,3 +139,8 @@ void ImageWindow::refreshImage()
 {
     ui->label->setPixmap(QPixmap::fromImage(*this->primaryImage));
 }
+
+void ImageWindow::setSaved(bool status)
+{
+    this->saved = status;
+}

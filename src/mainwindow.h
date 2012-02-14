@@ -10,6 +10,10 @@
 #include "windows/convolutionlinearwindow.h"
 #include "windows/convolutiongaussiandialog.h"
 #include "windows/convolutionfreedialog.h"
+#include "windows/grayscaledialog.h"
+#include "windows/brightnessdialog.h"
+#include "windows/contrastdialog.h"
+#include "windows/gammadialog.h"
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
@@ -61,6 +65,14 @@ private slots:
     void on_actionLinear_triggered();
     void on_actionGaussian_triggered();
     void on_actionFree_triggered();
+
+    void on_actionGrayscale_activated();
+
+    void on_actionBrightness_triggered();
+
+    void on_actionContrast_triggered();
+
+    void on_actionGamma_triggered();
 
 private:
     Ui::MainWindow *ui;

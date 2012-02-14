@@ -32,7 +32,15 @@ SOURCES += main.cpp\
     src/windows/convolutionfreedialog.cpp \
     src/commands/convolutionlinearcommand.cpp \
     src/commands/convolutiongaussiancommand.cpp \
-    src/commands/convolutionfreecommand.cpp
+    src/commands/convolutionfreecommand.cpp \
+    src/windows/grayscaledialog.cpp \
+    src/commands/grayscalecommand.cpp \
+    src/windows/brightnessdialog.cpp \
+    src/commands/brightnesscommand.cpp \
+    src/windows/contrastdialog.cpp \
+    src/commands/contrastcommand.cpp \
+    src/windows/gammadialog.cpp \
+    src/commands/gammacommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -55,7 +63,15 @@ HEADERS  += src/mainwindow.h \
     src/windows/convolutionfreedialog.h \
     src/commands/convolutionlinearcommand.h \
     src/commands/convolutiongaussiancommand.h \
-    src/commands/convolutionfreecommand.h
+    src/commands/convolutionfreecommand.h \
+    src/windows/grayscaledialog.h \
+    src/commands/grayscalecommand.h \
+    src/windows/brightnessdialog.h \
+    src/commands/brightnesscommand.h \
+    src/windows/contrastdialog.h \
+    src/commands/contrastcommand.h \
+    src/windows/gammadialog.h \
+    src/commands/gammacommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \
@@ -65,7 +81,11 @@ FORMS    += src/mainwindow.ui \
     src/windows/histogramstretchdialog.ui \
     src/windows/convolutionlinearwindow.ui \
     src/windows/convolutiongaussiandialog.ui \
-    src/windows/convolutionfreedialog.ui
+    src/windows/convolutionfreedialog.ui \
+    src/windows/grayscaledialog.ui \
+    src/windows/brightnessdialog.ui \
+    src/windows/contrastdialog.ui \
+    src/windows/gammadialog.ui
 
 
 

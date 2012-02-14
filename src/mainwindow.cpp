@@ -281,3 +281,75 @@ void MainWindow::on_actionFree_triggered()
     dialog->setWindowTitle("Free convolution");
     dialog->show();
 }
+
+void MainWindow::on_actionGrayscale_activated()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    GrayscaleDialog *dialog = new GrayscaleDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Grayscale");
+    dialog->show();
+}
+
+void MainWindow::on_actionBrightness_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    BrightnessDialog *dialog = new BrightnessDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Brightness");
+    dialog->show();
+}
+
+void MainWindow::on_actionContrast_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    ContrastDialog *dialog = new ContrastDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Contrast");
+    dialog->show();
+}
+
+void MainWindow::on_actionGamma_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    GammaDialog *dialog = new GammaDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Gamma");
+    dialog->show();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

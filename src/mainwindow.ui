@@ -86,8 +86,19 @@
      <addaction name="actionGaussian"/>
      <addaction name="actionFree"/>
     </widget>
+    <widget class="QMenu" name="menuColour">
+     <property name="title">
+      <string>Colour</string>
+     </property>
+     <addaction name="actionGrayscale"/>
+     <addaction name="actionBrightness"/>
+     <addaction name="actionContrast"/>
+     <addaction name="actionGamma"/>
+    </widget>
     <addaction name="menuHistogram"/>
     <addaction name="menuBlur"/>
+    <addaction name="actionEdge_detection"/>
+    <addaction name="menuColour"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -172,6 +183,31 @@
   <action name="actionFree">
    <property name="text">
     <string>Free</string>
+   </property>
+  </action>
+  <action name="actionEdge_detection">
+   <property name="text">
+    <string>Edge detection</string>
+   </property>
+  </action>
+  <action name="actionGrayscale">
+   <property name="text">
+    <string>Grayscale</string>
+   </property>
+  </action>
+  <action name="actionBrightness">
+   <property name="text">
+    <string>Brightness</string>
+   </property>
+  </action>
+  <action name="actionContrast">
+   <property name="text">
+    <string>Contrast</string>
+   </property>
+  </action>
+  <action name="actionGamma">
+   <property name="text">
+    <string>Gamma</string>
    </property>
   </action>
  </widget>

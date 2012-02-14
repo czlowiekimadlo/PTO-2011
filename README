@@ -16,6 +16,12 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
+2012-02-14 v.0.1.6
+- brightness modification added
+- gamma modification added
+- contrast modification added
+- grayscale added
+
 2012-01-13 v.0.1.5
 - linear convolution added
 - gaussian convolution added

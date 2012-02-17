@@ -1,11 +1,5 @@
 #include "imagewindow.h"
 #include "ui_imagewindow.h"
-#include "formats/imageFormat.h"
-#include "formats/pbmformat.h"
-#include "formats/pgmformat.h"
-#include "formats/ppmformat.h"
-#include "formats/jpgformat.h"
-#include "windows/histogramwindow.h"
 
 ImageWindow::ImageWindow(QWidget *parent) :
     QWidget(parent),
@@ -69,6 +63,9 @@ void ImageWindow::openFile(QString fileName) {
         else if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
             format = new JPGFormat();
         }
+        else if (fileName.endsWith(".cmyk")) {
+            format = new CMYKFormat();
+        }
         else {
             QMessageBox::warning ( this, "Save error", "Unsupported file format.");
             return;
@@ -111,6 +108,9 @@ void ImageWindow::saveFile(QString fileName) {
         }
         else if (fileName.endsWith(".ppm")) {
             format = new PPMFormat();
+        }
+        else if (fileName.endsWith(".cmyk")) {
+            format = new CMYKFormat();
         }
         else if (fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
             format = new JPGFormat();

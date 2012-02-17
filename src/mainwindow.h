@@ -17,6 +17,7 @@
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
+#include "commands/edgegradientcommand.h"
 
 class ImageWindow;
 class HistogramWindow;

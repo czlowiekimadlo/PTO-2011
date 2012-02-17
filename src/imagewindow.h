@@ -9,6 +9,13 @@
 #include <QImage>
 #include <QFileDialog>
 #include "mainwindow.h"
+#include "formats/imageFormat.h"
+#include "formats/pbmformat.h"
+#include "formats/pgmformat.h"
+#include "formats/ppmformat.h"
+#include "formats/jpgformat.h"
+#include "formats/cmykformat.h"
+#include "windows/histogramwindow.h"
 
 class MainWindow;
 

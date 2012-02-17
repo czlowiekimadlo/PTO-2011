@@ -95,9 +95,22 @@
      <addaction name="actionContrast"/>
      <addaction name="actionGamma"/>
     </widget>
+    <widget class="QMenu" name="menuEdge_detection">
+     <property name="title">
+      <string>Edge detection</string>
+     </property>
+     <addaction name="actionSobel"/>
+     <addaction name="actionPrevitt"/>
+     <addaction name="actionRoberts"/>
+     <addaction name="actionLoG"/>
+     <addaction name="actionDoG"/>
+     <addaction name="actionGradient"/>
+     <addaction name="actionLaplasian"/>
+     <addaction name="actionZero_pass"/>
+    </widget>
     <addaction name="menuHistogram"/>
     <addaction name="menuBlur"/>
-    <addaction name="actionEdge_detection"/>
+    <addaction name="menuEdge_detection"/>
     <addaction name="menuColour"/>
    </widget>
    <widget class="QMenu" name="menuView">
@@ -185,11 +198,6 @@
     <string>Free</string>
    </property>
   </action>
-  <action name="actionEdge_detection">
-   <property name="text">
-    <string>Edge detection</string>
-   </property>
-  </action>
   <action name="actionGrayscale">
    <property name="text">
     <string>Grayscale</string>
@@ -208,6 +216,46 @@
   <action name="actionGamma">
    <property name="text">
     <string>Gamma</string>
+   </property>
+  </action>
+  <action name="actionSobel">
+   <property name="text">
+    <string>Sobel</string>
+   </property>
+  </action>
+  <action name="actionPrevitt">
+   <property name="text">
+    <string>Previtt</string>
+   </property>
+  </action>
+  <action name="actionRoberts">
+   <property name="text">
+    <string>Roberts</string>
+   </property>
+  </action>
+  <action name="actionLoG">
+   <property name="text">
+    <string>LoG</string>
+   </property>
+  </action>
+  <action name="actionDoG">
+   <property name="text">
+    <string>DoG</string>
+   </property>
+  </action>
+  <action name="actionGradient">
+   <property name="text">
+    <string>Gradient</string>
+   </property>
+  </action>
+  <action name="actionLaplasian">
+   <property name="text">
+    <string>Laplasian</string>
+   </property>
+  </action>
+  <action name="actionZero_pass">
+   <property name="text">
+    <string>Zero pass</string>
    </property>
   </action>
  </widget>

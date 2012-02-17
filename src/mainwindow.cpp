@@ -53,7 +53,7 @@ void MainWindow::on_actionSaveFile_activated()
                     this,
                     tr("Save File"),
                     "./image.jpg",
-                    tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
+                    tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg *.cmyk);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm);;Base CMYK (*.cmyk)")
                 );
 
         if (fileName != NULL) {
@@ -74,7 +74,7 @@ void MainWindow::openImageWindow() {
         this,
         tr("Open File"),
         "./",
-        tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm)")
+        tr("Images (*.pbm *.pgm *.ppm *.jpg *.jpeg *.cmyk);;JPEG (*.jpeg *.jpg);;Portable bitmap (*.pbm);;Portable graymap (*.pgm);;Portable pixmap (*.ppm);;Base CMYK (*.cmyk)")
     );
 
     if (fileName != NULL) {

@@ -40,7 +40,9 @@ SOURCES += main.cpp\
     src/windows/contrastdialog.cpp \
     src/commands/contrastcommand.cpp \
     src/windows/gammadialog.cpp \
-    src/commands/gammacommand.cpp
+    src/commands/gammacommand.cpp \
+    src/formats/cmykformat.cpp \
+    src/commands/edgegradientcommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -71,7 +73,9 @@ HEADERS  += src/mainwindow.h \
     src/windows/contrastdialog.h \
     src/commands/contrastcommand.h \
     src/windows/gammadialog.h \
-    src/commands/gammacommand.h
+    src/commands/gammacommand.h \
+    src/formats/cmykformat.h \
+    src/commands/edgegradientcommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \

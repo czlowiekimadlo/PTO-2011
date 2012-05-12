@@ -171,6 +171,8 @@ void MainWindow::pushCommand(BaseCommand * command)
 
 void MainWindow::popCommand()
 {
+    if (this->commandQueue->getSize() < 2) return;
+
     this->commandQueue->pop();
     if (this->historyWindow != NULL)
     {
@@ -334,22 +336,32 @@ void MainWindow::on_actionGamma_triggered()
     dialog->show();
 }
 
+void MainWindow::on_actionGradient_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
 
+    this->pushCommand(new EdgeGradientCommand());
+}
 
+void MainWindow::on_actionSobel_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
 
+    this->pushCommand(new EdgeSobelCommand());
+}
 
+void MainWindow::on_actionRoberts_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    this->pushCommand(new EdgeRobertsCommand());
+}

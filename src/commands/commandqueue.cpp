@@ -148,4 +148,8 @@ void CommandQueue::copyImage(QImage *input, QImage *output)
     }
 }
 
+int CommandQueue::getSize() {
+    return this->size;
+}
+
 

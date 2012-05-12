@@ -18,6 +18,8 @@
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
 #include "commands/edgegradientcommand.h"
+#include "commands/edgesobelcommand.h"
+#include "commands/edgerobertscommand.h"
 
 class ImageWindow;
 class HistogramWindow;
@@ -66,14 +68,14 @@ private slots:
     void on_actionLinear_triggered();
     void on_actionGaussian_triggered();
     void on_actionFree_triggered();
-
     void on_actionGrayscale_activated();
-
     void on_actionBrightness_triggered();
-
     void on_actionContrast_triggered();
-
     void on_actionGamma_triggered();
+    void on_actionGradient_triggered();
+    void on_actionSobel_triggered();
+
+    void on_actionRoberts_triggered();
 
 private:
     Ui::MainWindow *ui;

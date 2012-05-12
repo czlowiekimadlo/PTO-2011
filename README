@@ -16,6 +16,12 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
+2012-05-12 v.0.1.7
+- roberts operator added
+- sobel operator added
+- gradient edge operator added
+- minor queue improvements
+
 2012-02-14 v.0.1.6
 - brightness modification added
 - gamma modification added

@@ -17,6 +17,7 @@ public:
     void run(QImage * input, QImage * output, int depth);
     void run(QImage * input, QImage *output);
     BaseCommand * giveHead();
+    int getSize();
 
 private:
     int depth;

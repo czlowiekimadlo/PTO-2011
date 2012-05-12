@@ -1,18 +1,13 @@
-#include "edgegradientcommand.h"
-#include <iostream>
+#include "edgesobelcommand.h"
 
-EdgeGradientCommand::EdgeGradientCommand()
+EdgeSobelCommand::EdgeSobelCommand()
 {
-    this->mWidth = 3;
-    this->mHeight = 3;
-
-    this->mask[0] = 1; this->mask[1] = 1; this->mask[2] = 1;
+    this->mask[0] = 1; this->mask[1] = 2; this->mask[2] = 1;
     this->mask[3] = 0; this->mask[4] = 0; this->mask[5] = 0;
-    this->mask[6] = -1; this->mask[7] = -1; this->mask[8] = -1;
+    this->mask[6] = -1; this->mask[7] = -2; this->mask[8] = -1;
 }
 
-void EdgeGradientCommand::run(QImage *input, QImage *output)
-{
+void EdgeSobelCommand::run(QImage *input, QImage *output) {
     int w, h;
     int r, g, b;
     int RGx, RGy, GGx, GGy, BGx, BGy;
@@ -65,11 +60,18 @@ void EdgeGradientCommand::run(QImage *input, QImage *output)
                 }
             }
 
-            r = (int)sqrt(RGx*RGx + RGy*RGy);
+            if (RGx < 0) RGx = -RGx;
+            if (RGy < 0) RGy = -RGy;
+            if (GGx < 0) GGx = -GGx;
+            if (GGy < 0) GGy = -GGy;
+            if (BGx < 0) BGx = -BGx;
+            if (BGy < 0) BGy = -BGy;
+
+            r = (int)(RGx + RGy);
             if (r > 255) r = 255;
-            g = (int)sqrt(GGx*GGx + GGy*GGy);
+            g = (int)(GGx + GGy);
             if (g > 255) g = 255;
-            b = (int)sqrt(BGx*BGx + BGy*BGy);
+            b = (int)(BGx + BGy);
             if (b > 255) b = 255;
 
             output->setPixel(i, j, qRgb(r, g, b));
@@ -77,7 +79,7 @@ void EdgeGradientCommand::run(QImage *input, QImage *output)
     }
 }
 
-QString EdgeGradientCommand::label()
+QString EdgeSobelCommand::label()
 {
-    return "Gradient edge detect";
+    return "Sobel edge detect";
 }

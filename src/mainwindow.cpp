@@ -365,3 +365,53 @@ void MainWindow::on_actionRoberts_triggered()
 
     this->pushCommand(new EdgeRobertsCommand());
 }
+
+void MainWindow::on_actionPrevitt_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new EdgePrewittCommand());
+}
+
+void MainWindow::on_actionLaplasian_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new EdgeLaplasianCommand());
+}
+
+void MainWindow::on_actionLoG_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new EdgeLoGCommand());
+}
+
+void MainWindow::on_actionDoG_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new EdgeDoGCommand(1.0, 1.6));
+}
+
+void MainWindow::on_actionZero_pass_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new EdgeZeroPassCommand());
+}

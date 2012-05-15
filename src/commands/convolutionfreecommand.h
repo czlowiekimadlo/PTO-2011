@@ -13,7 +13,7 @@ public:
     void run(QImage * input, QImage * output);
     QString label();
 
-private:
+protected:
     int width;
     int height;
     int anchorX;

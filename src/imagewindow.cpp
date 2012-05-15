@@ -48,7 +48,7 @@ ImageWindow::~ImageWindow()
 }
 
 void ImageWindow::openFile(QString fileName) {
-    ImageFormat *format;
+    ImageFormat *format = NULL;
 
     if (fileName != NULL) {
         if (fileName.endsWith(".pbm")) {
@@ -67,7 +67,11 @@ void ImageWindow::openFile(QString fileName) {
             format = new CMYKFormat();
         }
         else {
-            QMessageBox::warning ( this, "Save error", "Unsupported file format.");
+            QMessageBox::warning ( this, "Open error", "Unsupported file format.");
+            return;
+        }
+
+        if (format == NULL) {
             return;
         }
 

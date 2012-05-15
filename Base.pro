@@ -44,7 +44,12 @@ SOURCES += main.cpp\
     src/formats/cmykformat.cpp \
     src/commands/edgegradientcommand.cpp \
     src/commands/edgesobelcommand.cpp \
-    src/commands/edgerobertscommand.cpp
+    src/commands/edgerobertscommand.cpp \
+    src/commands/edgeprewittcommand.cpp \
+    src/commands/edgelaplasiancommand.cpp \
+    src/commands/edgelogcommand.cpp \
+    src/commands/edgedogcommand.cpp \
+    src/commands/edgezeropasscommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -79,7 +84,12 @@ HEADERS  += src/mainwindow.h \
     src/formats/cmykformat.h \
     src/commands/edgegradientcommand.h \
     src/commands/edgesobelcommand.h \
-    src/commands/edgerobertscommand.h
+    src/commands/edgerobertscommand.h \
+    src/commands/edgeprewittcommand.h \
+    src/commands/edgelaplasiancommand.h \
+    src/commands/edgelogcommand.h \
+    src/commands/edgedogcommand.h \
+    src/commands/edgezeropasscommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \

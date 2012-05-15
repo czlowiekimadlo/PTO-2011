@@ -20,6 +20,11 @@
 #include "commands/edgegradientcommand.h"
 #include "commands/edgesobelcommand.h"
 #include "commands/edgerobertscommand.h"
+#include "commands/edgeprewittcommand.h"
+#include "commands/edgelaplasiancommand.h"
+#include "commands/edgelogcommand.h"
+#include "commands/edgedogcommand.h"
+#include "commands/edgezeropasscommand.h"
 
 class ImageWindow;
 class HistogramWindow;
@@ -54,7 +59,6 @@ public:
 public slots:
     void openImageWindow();
     void destroyImageWindow();
-
     void updateAllWindows();
 
 private slots:
@@ -74,8 +78,13 @@ private slots:
     void on_actionGamma_triggered();
     void on_actionGradient_triggered();
     void on_actionSobel_triggered();
-
     void on_actionRoberts_triggered();
+    void on_actionPrevitt_triggered();
+    void on_actionLaplasian_triggered();
+    void on_actionLoG_triggered();
+    void on_actionDoG_triggered();
+
+    void on_actionZero_pass_triggered();
 
 private:
     Ui::MainWindow *ui;

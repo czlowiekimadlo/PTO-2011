@@ -69,9 +69,18 @@ void ConvolutionFreeCommand::run(QImage *input, QImage *output)
                 }
             }
 
+            if (divSum == 0.0) divSum = 1.0;
+
             valueSumR = round(valueSumR / divSum);
             valueSumG = round(valueSumG / divSum);
             valueSumB = round(valueSumB / divSum);
+
+            if (valueSumR > 255.0) valueSumR = 255.0;
+            if (valueSumR < 0.0) valueSumR = 0.0;
+            if (valueSumG > 255.0) valueSumG = 255.0;
+            if (valueSumG < 0.0) valueSumG = 0.0;
+            if (valueSumB > 255.0) valueSumB = 255.0;
+            if (valueSumB < 0.0) valueSumB = 0.0;
 
             output->setPixel(i, j, qRgb((int)valueSumR, (int)valueSumG, (int)valueSumB));
 

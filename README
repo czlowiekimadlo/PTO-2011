@@ -16,7 +16,12 @@ tutoring by Wojciech Kowalewski.
 
 II. Changelog
 
-2012-06-14 v.0.1.8
+2012-05-16 v.0.1.9
+- median filter added
+- binary treshold added
+- morphology added
+
+2012-05-14 v.0.1.8
 - log operator added
 - dog operator added
 - zero-pass operator added

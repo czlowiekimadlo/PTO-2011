@@ -4,7 +4,6 @@
 #include "basecommand.h"
 #include <math.h>
 
-
 class GrayscaleCommand : public BaseCommand
 {
 public:

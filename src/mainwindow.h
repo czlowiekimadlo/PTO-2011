@@ -14,6 +14,7 @@
 #include "windows/brightnessdialog.h"
 #include "windows/contrastdialog.h"
 #include "windows/gammadialog.h"
+#include "windows/morphologydialog.h"
 #include "commands/commandqueue.h"
 #include "commands/basecommand.h"
 #include "commands/openfilecommand.h"
@@ -25,6 +26,8 @@
 #include "commands/edgelogcommand.h"
 #include "commands/edgedogcommand.h"
 #include "commands/edgezeropasscommand.h"
+#include "commands/noisemediancommand.h"
+#include "commands/binarycommand.h"
 
 class ImageWindow;
 class HistogramWindow;
@@ -83,8 +86,10 @@ private slots:
     void on_actionLaplasian_triggered();
     void on_actionLoG_triggered();
     void on_actionDoG_triggered();
-
     void on_actionZero_pass_triggered();
+    void on_actionMedian_triggered();
+    void on_actionMorphology_triggered();
+    void on_actionBinary_triggered();
 
 private:
     Ui::MainWindow *ui;

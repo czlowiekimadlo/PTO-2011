@@ -49,7 +49,12 @@ SOURCES += main.cpp\
     src/commands/edgelaplasiancommand.cpp \
     src/commands/edgelogcommand.cpp \
     src/commands/edgedogcommand.cpp \
-    src/commands/edgezeropasscommand.cpp
+    src/commands/edgezeropasscommand.cpp \
+    src/commands/noisemediancommand.cpp \
+    src/windows/morphologydialog.cpp \
+    src/commands/morpferosioncommand.cpp \
+    src/commands/morphdilationcommand.cpp \
+    src/commands/binarycommand.cpp
 
 HEADERS  += src/mainwindow.h \
     src/formats/imageFormat.h \
@@ -89,7 +94,12 @@ HEADERS  += src/mainwindow.h \
     src/commands/edgelaplasiancommand.h \
     src/commands/edgelogcommand.h \
     src/commands/edgedogcommand.h \
-    src/commands/edgezeropasscommand.h
+    src/commands/edgezeropasscommand.h \
+    src/commands/noisemediancommand.h \
+    src/windows/morphologydialog.h \
+    src/commands/morpferosioncommand.h \
+    src/commands/morphdilationcommand.h \
+    src/commands/binarycommand.h
 
 FORMS    += src/mainwindow.ui \
     src/imagewindow.ui \
@@ -103,7 +113,8 @@ FORMS    += src/mainwindow.ui \
     src/windows/grayscaledialog.ui \
     src/windows/brightnessdialog.ui \
     src/windows/contrastdialog.ui \
-    src/windows/gammadialog.ui
+    src/windows/gammadialog.ui \
+    src/windows/morphologydialog.ui
 
 
 

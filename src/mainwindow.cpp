@@ -415,3 +415,36 @@ void MainWindow::on_actionZero_pass_triggered()
 
     this->pushCommand(new EdgeZeroPassCommand());
 }
+
+void MainWindow::on_actionMedian_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new NoiseMedianCommand());
+}
+
+void MainWindow::on_actionMorphology_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    MorphologyDialog *dialog = new MorphologyDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose, true);
+    dialog->setWindowTitle("Morphology");
+    dialog->show();
+}
+
+void MainWindow::on_actionBinary_triggered()
+{
+    if (activeImage == NULL) {
+        QMessageBox::warning ( this, "Command error", "There is no image.");
+        return;
+    }
+
+    this->pushCommand(new BinaryCommand());
+}

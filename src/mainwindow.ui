@@ -94,6 +94,7 @@
      <addaction name="actionBrightness"/>
      <addaction name="actionContrast"/>
      <addaction name="actionGamma"/>
+     <addaction name="actionBinary"/>
     </widget>
     <widget class="QMenu" name="menuEdge_detection">
      <property name="title">
@@ -108,10 +109,18 @@
      <addaction name="actionLaplasian"/>
      <addaction name="actionZero_pass"/>
     </widget>
+    <widget class="QMenu" name="menuNoise">
+     <property name="title">
+      <string>Noise</string>
+     </property>
+     <addaction name="actionMedian"/>
+    </widget>
     <addaction name="menuHistogram"/>
     <addaction name="menuBlur"/>
     <addaction name="menuEdge_detection"/>
     <addaction name="menuColour"/>
+    <addaction name="menuNoise"/>
+    <addaction name="actionMorphology"/>
    </widget>
    <widget class="QMenu" name="menuView">
     <property name="title">
@@ -256,6 +265,21 @@
   <action name="actionZero_pass">
    <property name="text">
     <string>Zero pass</string>
+   </property>
+  </action>
+  <action name="actionMedian">
+   <property name="text">
+    <string>Median</string>
+   </property>
+  </action>
+  <action name="actionMorphology">
+   <property name="text">
+    <string>Morphology</string>
+   </property>
+  </action>
+  <action name="actionBinary">
+   <property name="text">
+    <string>Binary threshold</string>
    </property>
   </action>
  </widget>
